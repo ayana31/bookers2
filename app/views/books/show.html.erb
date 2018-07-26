@@ -19,7 +19,7 @@
         <% end %>
       </tr>
       </table>
-    <%= link_to edit_user_path(@user.id), class:"edit_user_#{@book.id}" do %>
+    <%= link_to edit_user_path(@user.id), class:"edit_user_#{@user.id}" do %>
      <button type="button" class="btn btn-default btn-block" aria-label="Left Align"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
     <% end %>
    </div>
@@ -59,8 +59,8 @@
   <td><%= @book_show.body %></td>
 
  <% if @book_show.user_id == current_user.id %>
-  <td><%= link_to"Edit", edit_book_path(@book_show.id), class:"edit.id_book_#{@book_show.id}" %></td>
-  <td><%= link_to"Destroy", book_path(@book_show.id), method: :delete, class:"destroy_book_#{@book_show.id}" %>
+  <td><%= link_to"Edit", edit_book_path(@book_show.id), class:"edit_book_#{@book.id}" %></td>
+  <td><%= link_to"Destroy", book_path(@book_show.id), method: :delete, class:"destroy_book_#{@book.id}", "data-confirm" => "本当に削除しますか？" %>
  <% end %>
 
   </td>

@@ -16,4 +16,14 @@ class ApplicationController < ActionController::Base
 		user_url(resource)
 	end
 
+	def create
+		@user = User.new
+		if @user.save
+		  flash[:success] = 'Successfully.'
+		  redirect_to user_path
+	    else
+	      render :top
+	end
+	end
+
 end
