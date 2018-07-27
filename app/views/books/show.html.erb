@@ -1,4 +1,6 @@
-<%=   flash[:success]  %>
+<% flash.each do |message_type, message| %>
+<div class="alert alert-<%= message_type %>"><%= message %></div>
+<% end %>
 
 <div class="container">
  <div class="row">
@@ -59,8 +61,8 @@
   <td><%= @book_show.body %></td>
 
  <% if @book_show.user_id == current_user.id %>
-  <td><%= link_to"Edit", edit_book_path(@book_show.id), class:"edit_book_#{@book.id}" %></td>
-  <td><%= link_to"Destroy", book_path(@book_show.id), method: :delete, class:"destroy_book_#{@book.id}", "data-confirm" => "本当に削除しますか？" %>
+  <td><%= link_to"Edit", edit_book_path(@book_show.id), class:"edit_book_#{@book_show.id}" %></td>
+  <td><%= link_to"Destroy", book_path(@book_show.id), method: :delete, class:"destroy_book_#{@book_show.id}", "data-confirm" => "本当に削除しますか？" %>
  <% end %>
 
   </td>

@@ -25,5 +25,4 @@ class ApplicationController < ActionController::Base
 	      render :top
 	end
 	end
-
 end
